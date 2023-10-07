@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../../firebase.config";
 
 
 const SignUp = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -17,15 +19,29 @@ const SignUp = () => {
 
         // create user ..
         createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    }
+
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleSignUp = () =>{
+        signInWithPopup(auth, provider)
         .then(result => {
             console.log(result.user)
         })
         .catch(error => {
-            console.log(error)
+            console.log('error', error.message)
         })
     }
+
     return (
-        <div className="flex justify-center items-center h-[85vh] bg-gray-300 px-2">
+        <div className="flex sm:mt-24 md:mt-5 justify-center items-center h-[85vh] bg-gray-300 px-2">
             <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
                 <h4 className="block text-2xl font-bold text-center tracking-normal text-blue-gray-900 antialiased">
                     Sign Up
@@ -109,6 +125,9 @@ const SignUp = () => {
                     </div>
                     <input className="mt-6 block w-full select-none rounded-lg bg-orange-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         data-ripple-light="true" type="submit" value="Register" />
+
+                    <button onClick={handleGoogleSignUp} className="mt-6 block w-full select-none rounded-lg bg-orange-100 py-3 px-6 text-center align-middle font-sans text-xs font-bold  shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none text-blue-600"
+                        data-ripple-light="true">Sign Up with Google</button>
 
                     <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         Alredy have an accout? Please<Link to='/login'><button className="btn btn-link">Login</button></Link>

@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import auth from "../../firebase.config";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 
 const Login = () => {
 
-    const {loginUser} = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
 
-    const handleLogin = e =>{
+    const handleLogin = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
@@ -15,19 +17,33 @@ const Login = () => {
         console.log(email, password);
 
         // loging user ....
-        loginUser(email, password) 
+        loginUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleLogin = () =>{
+        signInWithPopup(auth, provider)
         .then(result => {
             console.log(result.user)
         })
         .catch(error => {
-            console.error(error)
+            console.log('error', error.message)
         })
     }
 
+
+
     return (
-        <div className="flex justify-center items-center h-[85vh] bg-gray-300 px-2"> 
+        <div className="flex justify-center items-center h-[85vh] bg-gray-300 px-2">
             <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
-                <h4 className="block text-2xl font-bold text-center tracking-normal text-blue-gray-900 antialiased">
+                <h4 className="block text-2xl mt-12 font-bold text-center tracking-normal text-blue-gray-900 antialiased">
                     Login
                 </h4>
                 <p className="mt-1 block text-center text-base font-normal leading-relaxed text-gray-700 antialiased">
@@ -57,22 +73,22 @@ const Login = () => {
                     </div>
 
 
-                    <input className="mt-6 block w-full select-none rounded-lg bg-orange-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        data-ripple-light="true" type="submit" value="Login" />
-
-
-                    {/* <button
-                        className="mt-6 block w-full select-none rounded-lg bg-orange-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                        type="button"
-                        data-ripple-light="true"
-                    >
-                        Login
-                    </button> */}
+                    <div>
+                        <input
+                            className="mt-6 block w-full select-none rounded-lg bg-orange-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            data-ripple-light="true"
+                            type="submit"
+                            value="Login"
+                        />
+                    </div>
+                    <button onClick={handleGoogleLogin} className="mt-6 block w-full select-none rounded-lg bg-orange-100 py-3 px-6 text-center align-middle font-sans text-xs font-bold  shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none text-blue-600"
+                        data-ripple-light="true">Login with Google</button>
 
                     <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         You have no account ? Please<Link to='/signUp'><button className="btn btn-link">Sign Up</button></Link>
                     </p>
 
+                    
                 </form>
             </div>
         </div>

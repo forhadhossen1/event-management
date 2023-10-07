@@ -1,15 +1,29 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+
 
 const SignUp = () => {
 
-const handleSignUp = e =>{
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get('name');
-    const email = form.get('email');
-    const password = form.get('password');
-    console.log(name, email, password);
-}
+    const {createUser} = useContext(AuthContext)
+
+    const handleSignUp = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name');
+        const email = form.get('email');
+        const password = form.get('password');
+        console.log(name, email, password);
+
+        // create user ..
+        createUser(email, password)
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
     return (
         <div className="flex justify-center items-center h-[85vh] bg-gray-300 px-2">
             <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">

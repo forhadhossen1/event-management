@@ -6,7 +6,7 @@ const OurService = ({ services }) => {
         <div>
 
             <div>
-                <div className=" card card-compact bg-base-100 shadow-xl">
+                <div className=" card card-compact bg-base-100 shadow-xl rounded-lg">
                     <figure><img src={image_url} alt="service img" className="w-full h-[300px]" /></figure>
                     <div className="card-body">
                         <h2 className="card-title font-bold">{name}</h2>

@@ -18,7 +18,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='md:container md:mx-auto'>
+            <div className='md:max-w-5xl md:mx-auto'>
                 <h2 className="text-5xl font-semibold text-center py-16">Our Service</h2>
                 <div className='gap-5 grid md:grid-cols-2 lg:grid-cols-3'>
                     {

@@ -3,6 +3,8 @@ import Layouts from "../Layouts/Layouts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import Details from "../Pages/Details/Details";
+import PrivetRouts from "./PrivetRouts";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +15,11 @@ const router = createBrowserRouter([
             path : '/',
             element :<Home></Home>,
             loader : () => fetch('/data.json')
+        },
+        {
+          path: '/services/:id',
+          element : <PrivetRouts><Details></Details>,</PrivetRouts>,
+          loader : () => fetch('/data.json')
         },
         {
           path : '/login',

@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const Details = () => {
 
@@ -18,7 +18,7 @@ const Details = () => {
                     <p className="text-xl font-bold text-start">Price : {service.price} $</p>
                     <p className="text-start">{service.long_description}</p>
                     <div className="card-actions flex justify-center">
-                        <button className="btn btn-primary">Contact Now</button>
+                        <Link to='/contact'><button className="btn btn-primary">Contact Now</button></Link>
                     </div>
                 </div>
             </div>

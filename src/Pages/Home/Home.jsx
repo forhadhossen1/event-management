@@ -2,6 +2,9 @@
 import { useLoaderData } from 'react-router-dom';
 import bannerImg from '../../assets/banner1.jpg'
 import OurService from '../../Components/OurService';
+import Gallery from '../../Components/Gallery';
+import OurInfo from '../../Components/OurInfo';
+import Footer from '../../Components/Footer';
 const Home = () => {
 
     const services = useLoaderData()
@@ -18,14 +21,21 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='md:max-w-5xl md:mx-auto'>
-                <h2 className="text-5xl font-semibold text-center py-16">Our Service</h2>
-                <div className='gap-5 grid md:grid-cols-2 lg:grid-cols-3'>
-                    {
-                        services.map(service => <OurService key={service.id} services={service}></OurService>)
-                    }
+
+            <div className='bg-slate-200'>
+                <div className='md:max-w-5xl md:mx-auto'>
+                    <h2 className="text-5xl font-semibold text-center py-16">Our Service</h2>
+                    <div className='gap-5 grid md:grid-cols-2 lg:grid-cols-3'>
+                        {
+                            services.map(service => <OurService key={service.id} services={service}></OurService>)
+                        }
+                    </div>
                 </div>
             </div>
+
+            <Gallery></Gallery>
+            <OurInfo></OurInfo>
+            <Footer></Footer>
         </div>
     );
 };

@@ -7,7 +7,7 @@ const Details = () => {
     const idInt = parseInt(id);
     const service = services.find(service => service.id === idInt);
     return (
-        <div>
+        <div className="bg-slate-300">
             <h2 className="text-3xl font-bold text-center py-10">{service.name} Details</h2>
             <div className="card md:max-w-5xl md:mx-auto bg-base-100">
                 <figure className="px-10 pt-10">

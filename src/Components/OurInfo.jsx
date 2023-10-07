@@ -1,0 +1,55 @@
+
+const OurInfo = () => {
+    return (
+        <div className="bg-slate-200 pb-12">
+            <h2 className="text-5xl font-semibold mb-4 text-center py-12">Our Info</h2>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 md:max-w-5xl md:mx-auto">
+                {/* address ...  */}
+                <div className="card  bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://i.ibb.co/549N6XN/location-pin.png" alt="location" className="rounded-xl h-[100px]" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Address</h2>
+                        <p>Nic Event Agency <br /> New Yourk <br /> k13s45</p>
+                    </div>
+                </div>
+
+                {/* .... Email...  */}
+                <div className="card  bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://i.ibb.co/q17hsKD/mail.png" alt="email" className="rounded-xl h-[100px]" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Email-Phone</h2>
+                        <p>Phone : 6484223 <br /> Fax : 5+5+523 <br />helo@gamil.com</p>
+                    </div>
+                </div>
+
+                {/* open times  */}
+                <div className="card  bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://i.ibb.co/yNThzYn/phone-call.png" alt="Open time" className="rounded-xl h-[100px]" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Open Times</h2>
+                        <p>Sat-Thus<br /> 8.00am - 5.00pm<br /> Weekend Closed</p>
+                    </div>
+                </div>
+
+                {/* .. sessions  */}
+                <div className="card  bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://i.ibb.co/9cQ9gTM/bar-chart.png" alt="Session" className="rounded-xl h-[100px]" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Sessions</h2>
+                        <p>Mornings-Noon<br />Afternoons<br />Full Day</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default OurInfo;

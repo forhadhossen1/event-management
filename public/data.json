@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Wedding",
+      "price": 2499,
+      "short_description": "Exceptional wedding event management services.",
+      "image_url": "https://i.ibb.co/DKZkfP2/wed2.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Engagement Parties",
+      "price": 1999,
+      "short_description": "Expertise in organizing memorable engagement parties.",
+      "image_url": "https://i.ibb.co/qdtPqBC/wed3.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Birthdays",
+      "price": 1299,
+      "short_description": "Celebrate birthdays with our professional event planning.",
+      "image_url": "https://i.ibb.co/y5GTLbf/birthday1.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Holiday Parties",
+      "price": 5999,
+      "short_description": "Create unforgettable holiday parties with our services.",
+      "image_url": "https://i.ibb.co/H7S24F6/retir2.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Anniversaries",
+      "price": 1799,
+      "short_description": "Specializing in anniversary event management.",
+      "image_url": "https://i.ibb.co/HtYjfvH/wed1.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Retirement Parties",
+      "price": 999,
+      "short_description": "Efficient and stylish retirement party planning services.",
+      "image_url": "https://i.ibb.co/GJy2sTq/old1.jpg"
+    }
+  ]
+  

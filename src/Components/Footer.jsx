@@ -4,7 +4,7 @@ const Footer = () => {
 
         <footer className=" py-10 px-2 bg-white text-base-content">
             <h2 className="text-3xl font-bold py-5 text-center">Nic Event Agency</h2>
-            <div className="footer md:max-w-5xl md:mx-auto">
+            <div className="footer md:max-w-5xl md:mx-auto md:flex justify-between">
                 <nav>
                     <header className="footer-title">Services</header>
                     <a className="link link-hover">Wedding</a>

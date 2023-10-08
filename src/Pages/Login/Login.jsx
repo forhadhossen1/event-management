@@ -8,6 +8,9 @@ import Swal from "sweetalert2";
 
 const Login = () => {
 
+    // const [emailError, setEmailError] = useState("");
+    // const [passwordError, setPasswordError] = useState("");
+
     const { loginUser } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -19,6 +22,7 @@ const Login = () => {
         const password = form.get('password');
         console.log(email, password);
 
+
         // loging user ....
         loginUser(email, password)
             .then(result => {
@@ -27,30 +31,31 @@ const Login = () => {
                     'Success',
                     'Login Successfull',
                     'success'
-                  )
+                )
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.error(error)
+                Swal.fire("Provide", "Correct email and password", "error");
             })
     }
 
     const provider = new GoogleAuthProvider();
 
-    const handleGoogleLogin = () =>{
+    const handleGoogleLogin = () => {
         signInWithPopup(auth, provider)
-        .then(result => {
-            console.log(result.user)
-            Swal.fire(
-                'Success',
-                'Login Successfull',
-                'success'
-              )
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error => {
-            console.log('error', error.message)
-        })
+            .then(result => {
+                console.log(result.user)
+                Swal.fire(
+                    'Success',
+                    'Login Successfull',
+                    'success'
+                )
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
     }
 
 
@@ -87,7 +92,6 @@ const Login = () => {
                         </div>
                     </div>
 
-
                     <div>
                         <input
                             className="mt-6 block w-full select-none rounded-lg bg-orange-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -103,7 +107,7 @@ const Login = () => {
                         You have no account ? Please<Link to='/signUp'><button className="btn btn-link">Sign Up</button></Link>
                     </p>
 
-                    
+
                 </form>
             </div>
         </div>

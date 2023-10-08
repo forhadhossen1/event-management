@@ -19,7 +19,8 @@ const Gallery = () => {
         <div className="max-w-screen-xl mx-auto p-6 mt-4 pb-12">
             <h2 className="text-5xl font-semibold mb-4 text-center pt-12">Image Gallery</h2>
             <p className="text-lg font-medium text-center py-5">Our Best Events Gallery !</p>
-            <div className="lg:grid lg:grid-cols-6 md:grid md:grid-cols-3 sm:grid gap-4">
+            <div data-aos="fade-up"
+                data-aos-duration="2000" className="lg:grid lg:grid-cols-6 md:grid md:grid-cols-3 sm:grid gap-4">
                 {images.map((imageUrl, index) => (
                     <div key={index} className="relative group">
                         <img

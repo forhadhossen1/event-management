@@ -14,8 +14,9 @@ const Home = () => {
             <div className="hero min-h-[92vh]" style={{ backgroundImage: `url(${bannerImg})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">We create <br />You <br /> Celebrate</h1>
+                    <div className="max-w-md" data-aos="fade-up"
+                        data-aos-duration="3000" >
+                        <h1 className="mb-5 text-5xl font-bold text-black">We create <br />You <br /> Celebrate</h1>
                         <p className="mb-5">Planning a Wedding, Proposal, or Event in our busy city is not so easy.</p>
 
                     </div>

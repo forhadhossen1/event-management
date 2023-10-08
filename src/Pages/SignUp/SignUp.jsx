@@ -1,13 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../firebase.config";
+import Swal from "sweetalert2";
+
 
 
 const SignUp = () => {
 
     const { createUser } = useContext(AuthContext)
+    const [password, setPassword] = useState('');
+    const [passError, setPassError] = useState('');
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -17,27 +21,60 @@ const SignUp = () => {
         const password = form.get('password');
         console.log(name, email, password);
 
+        if (password.length < 6) {
+            setPassError("Must be pass 6 carecter")
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+            setPassError("Password must contain at least one capital letter.");
+            return;
+        }
+        if (!/[^a-zA-Z0-9]/.test(password)) {
+            setPassError("Password must contain at least one special character.");
+            return;
+        }
+        // clear Warnign 
+        setPassError("");
+
+
+
+
+
+
         // create user ..
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+
+                // alert 
+                Swal.fire(
+                    'Success',
+                    'Sign Up Successfull',
+                    'success'
+                  )
             })
             .catch(error => {
                 console.log(error)
             })
+    };
 
-    }
 
     const provider = new GoogleAuthProvider();
 
-    const handleGoogleSignUp = () =>{
+    const handleGoogleSignUp = () => {
         signInWithPopup(auth, provider)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error => {
-            console.log('error', error.message)
-        })
+            .then(result => {
+                console.log(result.user)
+
+                Swal.fire(
+                    'Success',
+                    'Sign Up Successfull',
+                    'success'
+                  )
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
     }
 
     return (
@@ -72,12 +109,18 @@ const SignUp = () => {
                         <div className="relative h-11 w-full min-w-[200px]">
                             <input
                                 type="password" name="password" required
+                                onChange={e => setPassword(e.target.value)}
                                 className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                 placeholder=" "
                             />
                             <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                                 Password
                             </label>
+                            {
+                                passError && (
+                                    <span className="text-red-500 text-sm mt-1">{passError}</span>
+                                )
+                            }
                         </div>
                     </div>
                     <div className="inline-flex items-center">

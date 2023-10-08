@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import auth from "../../firebase.config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -22,6 +23,11 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 console.log(result.user)
+                Swal.fire(
+                    'Success',
+                    'Login Successfull',
+                    'success'
+                  )
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
@@ -35,6 +41,11 @@ const Login = () => {
         signInWithPopup(auth, provider)
         .then(result => {
             console.log(result.user)
+            Swal.fire(
+                'Success',
+                'Login Successfull',
+                'success'
+              )
             navigate(location?.state ? location.state : '/')
         })
         .catch(error => {

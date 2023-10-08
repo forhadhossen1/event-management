@@ -20,7 +20,7 @@ const Header = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         {/* <li><NavLink>Blog</NavLink></li> */}
         <li><NavLink  to='/contact'>Contact</NavLink></li>
-        <li><NavLink>About</NavLink></li>
+        <li><NavLink to='/about'>About</NavLink></li>
     </>
     return (
         <div className="bg-slate-300">

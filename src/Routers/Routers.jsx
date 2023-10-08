@@ -8,11 +8,13 @@ import PrivetRouts from "./PrivetRouts";
 import Contact from "../Pages/Contact/Contact";
 import About from "../Pages/About/About";
 import Clients from "../Pages/Clients/Clients";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element:<Layouts></Layouts>,
+      errorElement : <ErrorPage></ErrorPage>,
       children : [
         {
             path : '/',

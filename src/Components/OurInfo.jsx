@@ -5,7 +5,7 @@ const OurInfo = () => {
             <h2 className="text-5xl font-semibold mb-4 text-center py-12">Our Info</h2>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 md:max-w-5xl md:mx-auto">
                 {/* address ...  */}
-                <div data-aos="fade-right"
+                <div data-aos="fade-up"
                     data-aos-offset="300"
                     data-aos-duration="1000"
                     data-aos-easing="ease-in-sine" className="card  bg-base-100 shadow-xl">
@@ -19,7 +19,9 @@ const OurInfo = () => {
                 </div>
 
                 {/* .... Email...  */}
-                <div className="card  bg-base-100 shadow-xl">
+                <div data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1000" className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src="https://i.ibb.co/q17hsKD/mail.png" alt="email" className="rounded-xl h-[100px]" />
                     </figure>
@@ -30,7 +32,9 @@ const OurInfo = () => {
                 </div>
 
                 {/* open times  */}
-                <div className="card  bg-base-100 shadow-xl">
+                <div data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1000" className="card  bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src="https://i.ibb.co/yNThzYn/phone-call.png" alt="Open time" className="rounded-xl h-[100px]" />
                     </figure>
@@ -41,7 +45,7 @@ const OurInfo = () => {
                 </div>
 
                 {/* .. sessions  */}
-                <div data-aos="fade-left"
+                <div data-aos="fade-up"
                     data-aos-offset="300"
                     data-aos-duration="1000"
                     data-aos-easing="ease-in-sine" className="card  bg-base-100 shadow-xl">

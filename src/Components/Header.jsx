@@ -18,7 +18,7 @@ const Header = () => {
 
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        {/* <li><NavLink>Blog</NavLink></li> */}
+        <li><NavLink to='/clients'>Clints</NavLink></li>
         <li><NavLink  to='/contact'>Contact</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
     </>

@@ -19,7 +19,7 @@ const About = () => {
     ];
 
     return (
-        <div className="bg-slate-200">
+        <div className="bg-slate-200 px-2">
 
             <h2 className="text-5xl font-semibold text-center pt-12">About Us</h2>
             <div className=" md:max-w-5xl md:mx-auto items-center pb-12">
@@ -34,7 +34,7 @@ const About = () => {
 
                 <div className="py-12">
                     <div className="card lg:card-side ">
-                        <figure><img src="https://i.ibb.co/chFznFh/user2.jpg" alt="Album" className="w-full" /></figure>
+                        <figure><img src="https://i.ibb.co/chFznFh/user2.jpg" alt="Album" className="w-full sm:h-[500px] lg:h-full rounded-none" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">Manager</h2>
                             <p>Risk management is another vital aspect of a project managerss job. They identify potential issues and develop strategies to mitigate them, keeping projects on track. Budget management is equally critical; they allocate resources efficiently, preventing cost overruns.</p>
@@ -55,7 +55,7 @@ const About = () => {
                 </div>
 
 
-                <div className="lg:grid lg:grid-cols-6 md:grid md:grid-cols-3 sm:grid gap-4">
+                <div className="grid gap-4 lg:grid lg:grid-cols-6 md:grid md:grid-cols-3 ">
                     {images.map((imageUrl, index) => (
                         <div key={index} className="relative group">
                             <img

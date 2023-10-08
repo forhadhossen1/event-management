@@ -1,5 +1,5 @@
 # Live Web link :
-- Social Events web :
+- Social Events management web :
  https://assignment-9b8.web.app/
 
 # 5 Project featured. In my Project

@@ -5,6 +5,7 @@ import OurService from '../../Components/OurService';
 import Gallery from '../../Components/Gallery';
 import OurInfo from '../../Components/OurInfo';
 import Footer from '../../Components/Footer';
+import Clients from '../../Components/Clients';
 const Home = () => {
 
     const services = useLoaderData()
@@ -36,6 +37,7 @@ const Home = () => {
 
             <Gallery></Gallery>
             <OurInfo></OurInfo>
+            <Clients></Clients>
             <Footer></Footer>
         </div>
     );

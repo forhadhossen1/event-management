@@ -5,7 +5,7 @@ const Clients = () => {
         <div>
 
             <div className=" bg-slate-300 pb-12">
-                <h2 className="text-4xl font-semibold mb-4 text-center py-12">Testimonials</h2>
+                <h2 className="text-4xl font-semibold mb-4 text-center py-12">Test<span className='text-orange-700'>imonials</span> </h2>
                 <h2 className="text-xl font-semibold mb-4 text-center py-3">Happy Clients About Us</h2>
                 <Marquee speed={70} pauseOnHover={true}>
                     <div className="flex gap-4  md:max-w-7xl md:mx-auto">

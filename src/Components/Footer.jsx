@@ -3,7 +3,7 @@ const Footer = () => {
     return (
 
         <footer className=" py-10 px-2 bg-white text-base-content">
-            <h2 className="text-3xl font-bold py-5 text-center">Nic Event Agency</h2>
+            <h2 className="text-3xl font-bold py-5 text-center">Nic <span className='text-orange-700'>Event</span> Agency</h2>
             <div className="footer md:max-w-5xl md:mx-auto md:flex justify-between">
                 <nav>
                     <header className="footer-title">Services</header>

@@ -26,7 +26,8 @@ const Home = () => {
 
             <div className='bg-slate-200'>
                 <div className='md:max-w-5xl md:mx-auto'>
-                    <h2 className="text-5xl font-semibold text-center py-16">Our Service</h2>
+                    <h2 className="text-5xl font-semibold text-center pt-16">Our <span className='text-orange-700'> Service</span></h2>
+                    <h2 className="font-semibold text-center py-5">If you want, you can find your favorite event from here and contact us</h2>
                     <div className='gap-5 grid md:grid-cols-2 lg:grid-cols-3'>
                         {
                             services.map(service => <OurService key={service.id} services={service}></OurService>)

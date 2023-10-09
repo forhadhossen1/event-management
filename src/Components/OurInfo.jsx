@@ -2,7 +2,7 @@
 const OurInfo = () => {
     return (
         <div className="bg-slate-200 pb-12">
-            <h2 className="text-5xl font-semibold mb-4 text-center py-12">Our Info</h2>
+            <h2 className="text-5xl font-semibold mb-4 text-center py-12">Our <span className='text-orange-700'> Info</span></h2>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 md:max-w-5xl md:mx-auto">
                 {/* address ...  */}
                 <div data-aos="fade-up"
